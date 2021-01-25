@@ -238,7 +238,18 @@ Route::get('/post/{id}/user', function($id){
 
 
 
+Route::get('/posts', function(){
 
+    $user = User::find(1);
+
+    foreach($user->posts as $post){
+
+       echo $post->title . "<br>";
+
+
+    }
+
+});
 
 /*
 ------------------------------------------------------------------
@@ -336,7 +347,7 @@ Route::get('/post/{id}/user', function($id){
 // });
 
 
-Route::resource('posts', '\App\Http\Controllers\Postscontroller');
+// Route::resource('posts', '\App\Http\Controllers\Postscontroller');
 
 Route::get('/contact','\App\Http\Controllers\PostsController@contact');
 
