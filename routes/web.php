@@ -143,6 +143,19 @@ Route::get('/massdelete', function(){
 
 });
 
+/*
+------------------------------------------------------------------
+    SOFT DELETE WITH ELOQUENT
+------------------------------------------------------------------
+*/
+
+
+Route::get('/softdelete', function(){
+
+    Post::find(5)->delete();
+
+});
+
 
 
 /*
