@@ -72,10 +72,25 @@ Route::get('/basicinsert2', function(){
 
 
 
-Route::get('/create', function(){
+Route::get('/create2', function(){
 
 
     Post::create(['title'=> 'the create method', 'content'=>'im learning such amazing stuff and i love it']);
+
+
+});
+
+
+/*
+------------------------------------------------------------------
+    UPDATE WITH ELOQUENT
+------------------------------------------------------------------
+*/
+
+
+Route::get('/update', function(){
+
+    Post::where('id', 3)->where('is_admin', 0)->update(['title'=>'nee title', 'content'=>'updating it fams']);
 
 
 });
