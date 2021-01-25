@@ -160,6 +160,28 @@ Route::get('/softdelete', function(){
 
 /*
 ------------------------------------------------------------------
+   READ SOFT DELETE WITH ELOQUENT
+------------------------------------------------------------------
+*/
+
+
+Route::get('/readsoftdelete', function(){
+
+    // $post = Post::find(5);
+    // return $post;
+
+//    $post = Post::withTrashed()->where('id', 5)->get();
+//    return $post;
+
+    $post = Post::onlyTrashed()->where('id', 4)->get();
+   return $post;
+
+});
+
+
+
+/*
+------------------------------------------------------------------
     BASIC RAW SQL
 ------------------------------------------------------------------
 */
