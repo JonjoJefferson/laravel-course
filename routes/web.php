@@ -72,7 +72,7 @@ Route::get('/basicinsert2', function(){
 
 
 
-Route::get('/create2', function(){
+Route::get('/create', function(){
 
 
     Post::create(['title'=> 'the create method', 'content'=>'im learning such amazing stuff and i love it']);
@@ -99,13 +99,13 @@ Route::get('/update', function(){
 
 /*
 ------------------------------------------------------------------
-    DELETE WITH ELOQUENT 1
+    DELETE WITH ELOQUENT 1 (WORKS BUT TOO MUCH)
 ------------------------------------------------------------------
 */
 
 Route::get('/delete', function(){
 
-$post = Post::find(6);
+$post = Post::find(16);
 
 $post->delete();
 
@@ -115,13 +115,13 @@ $post->delete();
 
 /*
 ------------------------------------------------------------------
-    DELETE WITH ELOQUENT 2
+    DELETE WITH ELOQUENT 2 (BETTER)
 ------------------------------------------------------------------
 */
 
 
 Route::get('/delete2', function(){
-    Post::destroy(3);
+    Post::destroy(14);
 
 });
 
@@ -196,8 +196,17 @@ Route::get('/restore', function(){
 
 
 
+/*
+------------------------------------------------------------------
+   FORCE DELETE WITH ELOQUENT
+------------------------------------------------------------------
+*/
 
+Route::get('/forcedelete', function(){
 
+Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
+
+});
 
 
 /*
