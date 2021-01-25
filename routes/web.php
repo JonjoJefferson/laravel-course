@@ -105,7 +105,7 @@ Route::get('/update', function(){
 
 Route::get('/delete', function(){
 
-$post = Post::find(1);
+$post = Post::find(6);
 
 $post->delete();
 
@@ -152,7 +152,7 @@ Route::get('/massdelete', function(){
 
 Route::get('/softdelete', function(){
 
-    Post::find(5)->delete();
+    Post::find(8)->delete();
 
 });
 
@@ -177,6 +177,26 @@ Route::get('/readsoftdelete', function(){
    return $post;
 
 });
+
+
+
+/*
+------------------------------------------------------------------
+   RESTORE SOFT DELETE WITH ELOQUENT
+------------------------------------------------------------------
+*/
+
+
+Route::get('/restore', function(){
+
+
+    Post::withTrashed()->where('is_admin', 0)->restore();
+
+});
+
+
+
+
 
 
 
